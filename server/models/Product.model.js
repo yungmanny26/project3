@@ -2,23 +2,15 @@ const mongoose = require("mongoose");
 
 const ProductsSchema = mongoose.Schema(
   {
-    title: {
-        type: String,
-        required: true
-      },
-      price: {
-        type: Number,
-        required: true
-      },
-      description: {
-        type: String,
-        required: true
-      },
-      imageUrl: {
-        type: String,
-        required: true
-      },
+    image: Array,
+    name: String,
+    details: String,
+    price: Number,
   },
+  {
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+    timestamps: true,
+  }
  
 );
 

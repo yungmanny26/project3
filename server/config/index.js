@@ -12,7 +12,7 @@ const cookieParser = require("cookie-parser");
 // ℹ️ Needed to accept from requests from 'the outside'. CORS stands for cross origin resource sharing
 // unless the request if from the same domain, by default express wont accept POST requests
 const cors = require("cors");
-
+const cloudinary = require("./cloudinary.config");
 // Middleware configuration
 module.exports = (app) => {
   // Because this is a server that will accept requests from outside and it will be hosted ona server with a `proxy`, express needs to know that it should trust that setting.
@@ -29,6 +29,11 @@ module.exports = (app) => {
 
   // In development environment the app logs
   app.use(logger("dev"));
+
+  app.post('/', async(req, res)=>{
+    console.log(req.body)
+    res.json("I have received your data")
+  })
 
   // To have access to `body` property in the request
   app.use(express.json());
