@@ -1,5 +1,5 @@
 import { useState, useContext} from 'react';
-import axios from 'axios';
+
 import { authAxios } from "../customAxios/authAxios";
 import UserContext from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
@@ -43,7 +43,7 @@ const Login = () => {
   const submitFormData = async () => {
     try {
       const { data } = await authAxios.post(
-        `https://ecommerce-project3.herokuapp.com/${loginState}`,
+        `http:localhost:5005/ ${loginState}`,
         formData
       );
       setUser(() => data);
@@ -117,4 +117,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default Login; 

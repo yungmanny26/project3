@@ -17,14 +17,16 @@ import {
   ProductsList,
   Success,
 } from "./pages";
-
+import axios from 'axios'
 import AdminRoute from "./routeGuard/AdminRoute"
 
 function App() {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
-    const { data } = await products.list();
+    const { data } = await axios.get(   
+    "https://nike-outlet.herokuapp.com/api/products"
+    );
     setProducts(data);
   };
   useEffect(() => {

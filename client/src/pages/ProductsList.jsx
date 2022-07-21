@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { authAxios } from "../customAxios/authAxios";
 import { Link } from "react-router-dom";
-
+import axios from 'axios';
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,7 +13,8 @@ const Products = () => {
 
   const getProducts = async () => {
     const { data } = await authAxios.get(
-      `https://ecommerce-project3.herokuapp.com/products`
+      `https://nike-outlet.herokuapp.com/api/products`
+      
     );
     setProducts(() => data);
   };
